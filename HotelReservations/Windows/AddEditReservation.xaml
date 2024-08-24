@@ -1,0 +1,75 @@
+﻿<Window x:Class="HotelReservations.Windows.AddEditReservation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelReservations.Windows"
+        mc:Ignorable="d"
+        Title="AddEditReservation" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="320"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Vertical" Grid.ColumnSpan="2" Margin="0,0,198,47" Grid.RowSpan="2">
+            <StackPanel Orientation="Horizontal">
+                <Label Height="30" Width="150" Content="Room number:" Margin="0,0,0,15"/>
+                <ComboBox Name="RoomNumberCB" Height="30" Width="150" VerticalContentAlignment="Center" SelectedItem="{Binding RoomNumber}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Height="30" Width="150" Content="Guest(s):" Margin="0,5,0,0"/>
+                <TextBox Name="GuestsTextBox" Height="30" Width="150" IsReadOnly="True" />
+                <Button Name="SelectGuestsBtn" Content="..." Width="40" Height="20" Margin="5,0,0,0" Click="SelectGuestsBtn_Click"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Height="30" Width="150" Content="Reservation Type:"  Margin="0,5,0,0"/>
+                <TextBox Name="ReservationTypeTextBox" Height="30" Width="150" Margin="0,0,0,0" IsReadOnly="True" Text="{Binding Path = ReservationType}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Height="30" Width="150" Content="Start Date Time:" Margin="0,5,0,0"/>
+                <DatePicker x:Name="StartDateTimePicker" Height="30" Width="105" SelectedDate="{Binding Path = StartDateTime}" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Height="30" Width="150" Content="End Date Time:" Margin="0,5,0,5"/>
+                <DatePicker x:Name="EndDateTimePicker" Height="30" Width="105" SelectedDate="{Binding Path = EndDateTime, Mode=TwoWay}" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label Height="30" Width="150" Content="Total price:"  Margin="0,0,0,0"/>
+                <TextBox Name="TotalPriceTextBox" Height="30" Width="150" Margin="0,0,0,0" IsReadOnly="True" Text="{Binding Path = TotalPrice}" />
+            </StackPanel>
+        </StackPanel>
+        <StackPanel
+    Grid.Row="3" Grid.Column="2"
+    Orientation="Horizontal"
+    FlowDirection="RightToLeft"
+    >
+            <Button 
+        Name="SaveBtn"
+        Content="Save"
+        Width="80"
+        Height="30"
+        Margin="5,0,5,0"
+        Click="SaveBtn_Click"
+        />
+            <Button 
+        Name="CancelBtn"
+        Content="Cancel"
+        Width="80"
+        Height="30"
+        Click="CancelBtn_Click"
+        />
+        </StackPanel>
+
+    </Grid>
+</Window>

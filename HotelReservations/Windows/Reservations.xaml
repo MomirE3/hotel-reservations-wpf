@@ -1,0 +1,40 @@
+﻿<Window x:Class="HotelReservations.Windows.Reservations"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HotelReservations.Windows"
+        mc:Ignorable="d"
+        Title="Reservations" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <ToolBar Grid.Row="0">
+            <Button Name="AddBtn" Content="Add" BorderBrush="LightGray" Click="AddBtn_Click"/>
+            <Button Name="EditBtn" Content="Edit" BorderBrush="LightGray" Margin="5,0,0,0"  Click="EditBtn_Click" />
+            <Button Name="DeleteBtn" Content="Delete" BorderBrush="LightGray" Margin="5,0,0,0" Click="DeleteBtn_Click"/>
+            <Button Name="FinishBtn" Content="Leave room" BorderBrush="LightGray" Margin="5,0,0,0" Click="FinishBtn_Click"/>
+        </ToolBar>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Label Content="Room number:" VerticalContentAlignment="Center"/>
+            <TextBox Name="RoomNumberSearchTB" Height="24" Width="35" Margin="3" VerticalContentAlignment="Center" PreviewKeyUp="RoomNumberSearchTB_PreviewKeyUp"/>
+
+            <Label Content="Start Date:" VerticalContentAlignment="Center" Margin="10,0,0,0"/>
+            <DatePicker Name="StartDatePicker" Width="110" Margin="3"/>
+            <Label Content="End Date:" VerticalContentAlignment="Center" Margin="3,0"/>
+            <DatePicker Name="EndDatePicker" Width="110" Margin="3"/>
+            <Button Name="ApplyBtn" Content="Apply" Background="black" Foreground="White"  Margin="3,0,0,0" Click="ApplyBtn_Click"/>
+            <Button Name="ActiveReservationsBtn" Content="Active Reservations" Background="Black" Foreground="wHITE" Margin="15,0,0,0" Click="ActiveReservationsBtn_Click"/>
+            <Button Name="AllReservationsBtn" Content="Show All" Background="Black" Foreground="wHITE" Margin="5,0,0,0" Click="AllReservationsBtn_Click"/>
+
+        </StackPanel>
+
+        <DataGrid Name="ReservationsDG" Grid.Row="2"
+              IsReadOnly="True" AutoGeneratingColumn="ReservationsDG_AutoGeneratingColumn" />
+    </Grid>
+</Window>
